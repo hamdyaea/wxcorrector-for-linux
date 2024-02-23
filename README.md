@@ -16,7 +16,7 @@ Clone this repository.
   
 
 ```sh
-sudo python LizardSpock.py
+sudo python wxcorrector.py
 ```  
 
 
