@@ -10,17 +10,20 @@ import os
 
 
 def download_directly(url, destination_path):
-    # Ensure the destination directory exists
-    os.makedirs(os.path.dirname(destination_path), exist_ok=True)
-    print(f"Ensured that the directory {os.path.dirname(destination_path)} exists.")
+    try:
+        # Ensure the destination directory exists
+        os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+        print(f"Ensured that the directory {os.path.dirname(destination_path)} exists.")
 
-    # Download the file directly to the destination path
-    with urllib.request.urlopen(url) as response, open(
-        destination_path, "wb"
-    ) as out_file:
-        out_file.write(response.read())
-        print(f"Successfully downloaded the file to {destination_path}.")
+        # Download the file directly to the destination path
+        with urllib.request.urlopen(url) as response, open(
+            destination_path, "wb"
+        ) as out_file:
+            out_file.write(response.read())
+            print(f"Successfully downloaded the file to {destination_path}.")
 
+    except Exception as e:
+        print(f"An error occurred while downloading the file: {e}")
 
 # URL of the file to download
 url = "https://celestrak.org/NORAD/elements/weather.txt"
