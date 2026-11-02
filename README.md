@@ -1,28 +1,15 @@
-# WxtoImg Keplers fix for Linux  
-![Awesome](awesome.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![Python](python.png)
+# WXCorrector for Linux
 
+**Developer:** Hamdy Abou El Anein  
+**Contact:** info@daylightlinux.ch  
+**License:** GPL v3 (see LICENSE).
 
-![screenshot](error.png)
-
-## What's this software ?  
-
-The purpose of this program is to correct the error that may appear in the wxtoimg program which announces that the Keplers data is too old.  
-  
-## Installation   
-
-You need to have Python3 installed.  
-Clone this repository.  
-  
-  
-## To run the software   
-  
+A safer Python 3 updater for WX satellite weather TLE data. It uses HTTPS with a timeout and response size limit, defaults to a **dry run**, refuses symlinks and creates a timestamped backup before atomically replacing an existing TLE file.
 
 ```sh
-sudo python wxcorrector.py
-```  
+python3 wxcorrector.py
+python3 wxcorrector.py --destination ./weather.txt --apply
+python3 -m unittest discover -s tests -v
+```
 
-
-## Developer - Author  
-
-Hamdy Abou El Anein  
-
+The system destination `/usr/share/wx/tle/weather.txt` normally requires administrative permission. The program does not escalate privileges itself. Check source authenticity and data freshness before use. Original version: [old branch](https://github.com/hamdyaea/wxcorrector-for-linux/tree/old).
